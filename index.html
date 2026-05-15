@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stephanie Symosko — Software Engineer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #2c5f8a;
+      --accent-light: #e8f0f7;
+      --text: #1a1a1a;
+      --muted: #555;
+      --border: #c8d6e0;
+      --page-max: 860px;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text);
+      background: #f4f6f8;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      background: #fff;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+      border-radius: 4px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding-bottom: 1.25rem;
+      border-bottom: 3px solid var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .header .contact {
+      margin-top: 0.4rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .header .contact a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .header .contact a:hover { text-decoration: underline; }
+
+    /* Summary */
+    .summary {
+      font-size: 0.94rem;
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      line-height: 1.75;
+    }
+
+    /* Section headings */
+    .section-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--accent);
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .skill-tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0.2rem 0.6rem;
+      font-family: 'Arial', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .experience { margin-bottom: 1.75rem; }
+
+    .job { margin-bottom: 1.6rem; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+
+    .employer {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.03em;
+    }
+
+    .location {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .role-block { margin-top: 0.35rem; }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+
+    .role-title {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .role-dates {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .role-block ul {
+      margin-top: 0.45rem;
+      margin-left: 1.25rem;
+    }
+
+    .role-block ul li {
+      font-size: 0.9rem;
+      color: #333;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Education */
+    .education { margin-bottom: 0.5rem; }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .edu-left .degree {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .edu-left .school {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .edu-left .concentration {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .edu-date {
+      font-family: 'Arial', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0.6rem 0 1rem;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; padding: 1.5rem 2rem; border-radius: 0; }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .page { padding: 1.5rem 1.25rem; }
+      .job-header, .role-header, .edu-item { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Header -->
+    <header class="header">
+      <h1>Stephanie Symosko</h1>
+      <p class="contact">
+        Pittsburgh, PA &nbsp;|&nbsp; 412.266.6329 &nbsp;|&nbsp;
+        <a href="mailto:steph.symosko@gmail.com">steph.symosko@gmail.com</a>
+      </p>
+    </header>
+
+    <!-- Summary -->
+    <p class="summary">
+      Highly experienced senior software engineer with a strong background in the fast-paced retail
+      industry. With over a decade of hands-on experience, I have successfully developed and implemented
+      cutting-edge software solutions that have enhanced operational efficiency, optimized customer
+      experiences, and driven revenue growth for leading retail organizations. Adept at building working
+      relationships and collaborating across departments to create maintainable, high-performing websites
+      and code bases. Motivated and eager to take the next step in my career and branch out into new
+      experiences in the software engineering field.
+    </p>
+
+    <!-- Core Competencies -->
+    <div class="section-title">Core Competencies &amp; Technical Knowledge</div>
+    <div class="skills-grid">
+      <span class="skill-tag">Angular</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">TypeScript</span>
+      <span class="skill-tag">Storybook</span>
+      <span class="skill-tag">Nx Monorepo</span>
+      <span class="skill-tag">HTML5</span>
+      <span class="skill-tag">CSS3</span>
+      <span class="skill-tag">React</span>
+      <span class="skill-tag">NgRx</span>
+      <span class="skill-tag">GitHub &amp; GitHub Actions</span>
+      <span class="skill-tag">VSCode</span>
+      <span class="skill-tag">Blue Triangle Performance</span>
+      <span class="skill-tag">Core Web Vitals</span>
+      <span class="skill-tag">Atlassian Software</span>
+      <span class="skill-tag">Agile / Sprint Planning</span>
+      <span class="skill-tag">Mentorship</span>
+      <span class="skill-tag">System Development Life Cycle</span>
+      <span class="skill-tag">Project Management</span>
+      <span class="skill-tag">Adobe Scene7</span>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="section-title">Professional Experience</div>
+    <div class="experience">
+
+      <!-- DSG -->
+      <div class="job">
+        <div class="job-header">
+          <span class="employer">Dick's Sporting Goods</span>
+          <span class="location">Pittsburgh, PA</span>
+        </div>
+        <hr class="divider" />
+
+        <div class="role-block">
+          <div class="role-header">
+            <span class="role-title">Senior Software Engineer</span>
+            <span class="role-dates">August 2023 – Present</span>
+          </div>
+          <ul>
+            <li>Engineering lead on a newly created Performance Team focusing on improving website performance and setting standards within the monorepo.</li>
+            <li>Successfully resolved 200+ circular dependencies within the monorepo, unlocking the ability to upgrade the Angular framework.</li>
+            <li>Continuously improving the code base by upgrading 3 major versions of Angular and 2 major Node versions in less than 2 months.</li>
+            <li>Upgraded the internal Design System repository by 2 major Angular versions, 1 major React version, and 2 major Node versions.</li>
+            <li>Leverage the Blue Triangle portal to analyze performance metrics and Core Web Vitals for task planning.</li>
+            <li>Create and maintain GitHub Actions for workflow optimization.</li>
+            <li>Implement standards, best practices, and create documentation for engineers in the Nx monorepo.</li>
+            <li>Acts as a primary point of contact for contractor workers on the team.</li>
+          </ul>
+        </div>
+
+        <div class="role-block" style="margin-top:1rem;">
+          <div class="role-header">
+            <span class="role-title">Software Engineer II</span>
+            <span class="role-dates">August 2020 – August 2023</span>
+          </div>
+          <ul>
+            <li>Moved to lead the product details area across all DSG brands.</li>
+            <li>Collaborated with design and product management to plan feature implementation and MVP iterations across all product detail pages.</li>
+            <li>Key engineer in A/B testing on product detail pages generating <strong>$16 million in revenue</strong>.</li>
+            <li>Developed features within an Nx monorepo, creating shared and scalable components accessible across multiple applications.</li>
+            <li>Created Storybook documentation for shared components.</li>
+            <li>Lead engineer kicking off a rewrite of the product details page functionality to leverage NgRx.</li>
+            <li>Collaborated closely with teammates to prioritize and execute technical debt reduction efforts.</li>
+            <li>Onboarded and mentored multiple contractors to successfully contribute to the code base.</li>
+          </ul>
+        </div>
+
+        <div class="role-block" style="margin-top:1rem;">
+          <div class="role-header">
+            <span class="role-title">Software Engineer</span>
+            <span class="role-dates">July 2018 – August 2020</span>
+          </div>
+          <ul>
+            <li>Joined the DSG Front-end team as a contractor, leading to a full-time position.</li>
+            <li>Collaborated with the graphic design team to make daily marketing updates across all DSG brands.</li>
+            <li>Developed skills to update website content within Management Center WebSphere Commerce.</li>
+            <li>Started as lead engineer for the Field &amp; Stream website; moved to lead engineer for the Dick's Sporting Goods website.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Freelancer -->
+      <div class="job">
+        <div class="job-header">
+          <span class="employer">Freelancer</span>
+          <span class="location">Pittsburgh, PA</span>
+        </div>
+        <hr class="divider" />
+
+        <div class="role-block">
+          <div class="role-header">
+            <span class="role-title">Web Developer</span>
+            <span class="role-dates">May 2017 – August 2019</span>
+          </div>
+          <ul>
+            <li>Created and developed banner ads for American Eagle marketing campaigns.</li>
+            <li>Converted client visions from layout to responsive websites within a requested budget.</li>
+            <li>Maintained and updated an e-commerce website using the Shopify platform.</li>
+            <li>Created WordPress themes from design files provided in Photoshop or InDesign.</li>
+            <li>Communicated regularly with clients about project progress and/or delays.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- AEO -->
+      <div class="job">
+        <div class="job-header">
+          <span class="employer">American Eagle Outfitters</span>
+          <span class="location">Pittsburgh, PA</span>
+        </div>
+        <hr class="divider" />
+
+        <div class="role-block">
+          <div class="role-header">
+            <span class="role-title">UI Engineer</span>
+            <span class="role-dates">June 2016 – May 2017</span>
+          </div>
+          <ul>
+            <li>Collaborated with product management to define and implement solutions for on-going omni-channel ecommerce initiatives, including front-end UI and user experience.</li>
+            <li>Wrote and debugged Bootstrap and Ember code in an Agile development environment.</li>
+            <li>Established myself as subject-matter expert for WebCenter Sites (WCS), an Oracle CMS tool.</li>
+            <li>Trained and mentored non-technical associates to serve as daily users of WCS across ae.com and the AE family of brands (AEO, Aerie, Tailgate).</li>
+            <li>Created technical and specification documentation for the AE implementation of WCS to support design and serve as a training reference for new hires.</li>
+          </ul>
+        </div>
+
+        <div class="role-block" style="margin-top:1rem;">
+          <div class="role-header">
+            <span class="role-title">Web Developer</span>
+            <span class="role-dates">March 2012 – June 2016</span>
+          </div>
+          <ul>
+            <li>Supported American Eagle's domestic digital platforms including desktop, mobile web, and mobile applications.</li>
+            <li>Worked in a fast-paced HTML and CSS e-commerce environment completing daily and weekly refreshes including content and functionality updates.</li>
+            <li>Promoted to front-end lead developer for the flagship AE Brand in 2013.</li>
+            <li>Served as primary development resource for AE's mobile app content management; prepared daily updates to JSON files supporting marketing and brand initiatives.</li>
+            <li>Assisted in operationalizing AE's in-house iOS and Android platforms.</li>
+            <li>Provided strategic direction for cross-functional business partners to support optimal customer experience across all channels.</li>
+            <li>Delivered front-end development for seasonal ecommerce programs, web campaigns, and digital product launches including AEO Jean Guide, Holiday Gift Guides, AEO Better World WordPress site, and AerieReal &amp; Aerie BrightPink mobile responsive landing pages.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /experience -->
+
+    <!-- Education -->
+    <div class="section-title">Education</div>
+    <div class="education">
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="degree">Bachelor of Arts — Computer Systems</div>
+          <div class="school">Mercyhurst University, Erie, PA</div>
+          <div class="concentration">Concentration: Management &amp; Business Information Systems &nbsp;·&nbsp; Member, Phi Eta Sigma Honors Society</div>
+        </div>
+        <div class="edu-date">May 2007</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="degree">Associate of Science — Multimedia Technologies</div>
+          <div class="school">Pittsburgh Technical College, Oakdale, PA</div>
+          <div class="concentration">Concentration: Web / Interactive Design &nbsp;·&nbsp; High Honor Roll Member</div>
+        </div>
+        <div class="edu-date">July 2010</div>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+</body>
+</html>
